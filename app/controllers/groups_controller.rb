@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @user = User.where(user_id: current_user.id)
     @group = Group.find(params[:id])
     @group_spendings = @group.spendings.all
   end
