@@ -1,23 +1,19 @@
 Rails.application.routes.draw do
-  get 'groups/index'
-  get 'groups/show'
-  get 'groups/new'
-  get 'groups/create'
-  get 'groups/destroy'
-  get 'index/show'
-  get 'index/new'
-  get 'index/create'
-  get 'index/destroy'
-  get 'spendings/new'
-  get 'spendings/create'
-  get 'spendings/destroy'
-  get 'users/home'
   devise_for :users
-  # get 'home/index'
-  root 'home#index'
 
-  
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
 
-  # Defines the root path route ("/")
+  unauthenticated do
+    root 'users#home'
+  end
+
+  root 'groups#index', as: 'spending'
+
+  resources :users
+
+  resources :groups, only: %i[index show new create destroy] do
+    resources :spendings, only: %i[new show create destroy]
+  end
 end
