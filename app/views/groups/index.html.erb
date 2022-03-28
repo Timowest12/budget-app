@@ -1,2 +1,40 @@
-<h1>Groups#index</h1>
-<p>Find me in app/views/groups/index.html.erb</p>
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid justify-content-between">
+    <div>
+    </div>
+    <h1 class= 'navbar-brand' >CATEGORIES</h1>
+  </div>
+</nav>
+<p class="notice text-center"><%= notice %></p>
+<% if @groups.any?%>
+  <h1 class="text-center">Categories:</h1>
+  <% @groups.each do |group| %>
+
+
+    <div class="list-group">        
+        <a href="/groups/<%= group.id %>" class="list-group-item list-group-item-action flex-column align-items-start">
+            
+            <div class="d-flex w-100 justify-content-between">
+            <small><%=image_tag "" ,class:"img-thumbnail", width: "50px", height: "50px", alt:"icon"%></small>
+            
+            <h5 class="mb-1"><%= group.Name %></h5>
+            <small>Total in category: $<%= group.spendings.sum(:amount)%></small>
+            <small>Created at: <%= group.created_at.strftime("%Y-%b-%d")%></small>
+            </div>
+            <%# <small>hello</small>  %>
+            <%# <%if can? :destroy, group%> 
+          <%# <%=button_to "Delete", group_path(group.id), method: :delete, class:"btn delete-btn"%> 
+        <%# <%end%> 
+        </a>
+
+
+
+    
+    </div>
+  <%end%>
+<%else%>
+  <p class="text-center">No existing category. Please add a category</p>
+<%end%>
+<div class="add-btn-con container">
+  <%= link_to "Add Category", new_group_path, class: "add-button"%>
+</div>
