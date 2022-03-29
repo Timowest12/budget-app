@@ -7,6 +7,7 @@
 </nav>
 <p class="notice text-center"><%= notice %></p>
 <p class="alert text-center"><%= alert %></p>
+
 <section  class="d-flex flex-column align-items-center">
   <%= form_with model: [@group, @group.spendings.create], class:"input-form", data: { turbo: "false" }  do |f|%>
     <div class="mb-3">
