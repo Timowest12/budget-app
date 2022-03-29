@@ -21,7 +21,11 @@
 
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  &nbsp;&nbsp;<i class="bi bi-chevron-left backicon"></i>&nbsp;<a class="navbar-brand" href="#">Budget-App</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;
+
+<%= link_to '', :back, class:  "bi bi-chevron-left backicon" %>
+  
+  &nbsp;<a class="navbar-brand" href="#">Budget-App</a>&nbsp;&nbsp;&nbsp;&nbsp;
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>&nbsp;&nbsp;
@@ -44,9 +48,7 @@
         <%= link_to "Edit profile", edit_user_registration_path, class:"nav-link" %>
       </a>
 
-<a class="nav-item nav-link" href="#">
-        <%= link_to "New post", "/posts/#{current_user.id}/new_post", class:"nav-link" %>
-      </a>
+
 <% end %>
     </ul>
   </div>
