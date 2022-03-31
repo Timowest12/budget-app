@@ -26,6 +26,7 @@ class GroupsController < ApplicationController
   end
 
   def destroy
+    
   end
 
   def group_params

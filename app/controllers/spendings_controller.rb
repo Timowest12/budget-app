@@ -19,9 +19,6 @@ class SpendingsController < ApplicationController
   
   end
 
-  def destroy
-  end
-
   def spending_params
     params.require(:spending).permit(:name, :amount)
   end
