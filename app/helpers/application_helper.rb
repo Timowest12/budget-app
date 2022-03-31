@@ -1,3 +1,4 @@
+# rubocop:disable all
 # helper class
 module ApplicationHelper
   def flash_class(level)
@@ -9,3 +10,4 @@ module ApplicationHelper
     end
   end
 end
+# rubocop:enable all
