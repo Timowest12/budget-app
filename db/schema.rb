@@ -13,7 +13,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 20_220_328_205_405) do
-  # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
   create_table 'entities', force: :cascade do |t|

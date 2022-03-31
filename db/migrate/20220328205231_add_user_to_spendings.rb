@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# migrations class
 class AddUserToSpendings < ActiveRecord::Migration[7.0]
   def change
     add_reference :spendings, :user, null: false, foreign_key: true

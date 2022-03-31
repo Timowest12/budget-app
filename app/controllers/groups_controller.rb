@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# helper class
 class GroupsController < ApplicationController
   def index
     @groups = Group.where(user_id: current_user.id)

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# helper class
 class SpendingsController < ApplicationController
   def new
     @user = User.find(current_user.id)
