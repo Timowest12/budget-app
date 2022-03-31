@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 class GroupsController < ApplicationController
-  
   def index
     @groups = Group.where(user_id: current_user.id)
   end
@@ -25,9 +26,7 @@ class GroupsController < ApplicationController
     end
   end
 
-  def destroy
-    
-  end
+  def destroy; end
 
   def group_params
     params.require(:group).permit(:Name, :Icon)

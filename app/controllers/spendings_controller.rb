@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SpendingsController < ApplicationController
   def new
     @user = User.find(current_user.id)
@@ -16,7 +18,6 @@ class SpendingsController < ApplicationController
     else
       render :new
     end
-  
   end
 
   def spending_params
