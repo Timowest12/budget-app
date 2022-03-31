@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # helper class
 class SpendingsController < ApplicationController
   def new

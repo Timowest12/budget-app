@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # helper class
 class CreateEntities < ActiveRecord::Migration[7.0]
   def change

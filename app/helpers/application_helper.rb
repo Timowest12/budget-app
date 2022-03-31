@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # helper class
 module ApplicationHelper
   def flash_class(level)
