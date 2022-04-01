@@ -1,0 +1,69 @@
+  <%= render 'layouts/navbar', linkto: '/'%>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid justify-content-between">
+    <div>
+    <a href="/"><i class="fa fa-arrow-left"></i></a>
+    </div>
+    <h1 class= 'navbar-brand' >CATEGORY DETAILS</h1>
+  </div>
+</nav>
+<div class="d-flex flex-row justify-content-around category-block">
+  <%=image_tag "#{@group.Icon}" ,class:"img-thumbnail", width: "100px", height: "100px", alt:"icon"%>
+  <div class="category-name d-flex flex-column justify-content-around">
+    <h3>Category: <%= @group.Name%></h3>
+    <p class=""> Total: $<%= @group.spendings.sum(:amount)%></p>
+  </div>
+</div>
+
+  
+  <table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th>Name</th>
+      <th>Created at</th>
+      <th></th>
+      <th>Spend</th>
+    </tr>
+  </thead>
+  <tbody>
+<% if @group.spendings.any? %>
+<br>
+<br>
+<br>
+  <% @group.spendings.order(created_at:'DESC').each do |spend|%>
+    <tr>
+      <td>
+        <div class="d-flex align-items-center">
+          
+          <div class="ms-3">
+            <p class="fw-bold mb-1"><%= spend.name%></p>
+   
+          </div>
+        </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1"><%= spend.created_at.strftime("%Y-%b-%d")%></p>
+      </td>
+      <td>
+        <span class="badge badge-success rounded-pill d-inline">Active</span>
+      </td>
+      <td>$<%= spend.amount%></td>
+      
+    </tr>
+
+  
+
+  
+  <%end%>
+    </tbody>
+</table>
+<%else%>
+<br>
+<br>
+<br>
+<br>
+  <p class="text-center">There are no transactions for this category</p>
+<%end%>
+<div class="add-btn-con container">
+  <%= link_to "Add Expense",  new_group_spending_path(@group), class: "add-button"%>
+</div>
